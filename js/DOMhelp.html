@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="./jquery-1.7.2.min.js"></script>
+	<script src="./DOMhelp.js"></script>
+	<script>
+		$(function () {
+			$("#btnConfirm").click(function () {
+				DOMhelp.setDebug("aaaa");
+				var node = document.getElementById('liNoded');
+				DOMhelp.setDebug(DOMhelp.lastSibling(node).innerHTML);
+				// myDOMinspector();
+			});
+		});
+		function myDOMinspector() {
+			var myLinkItem = document.getElementById("linkItem");
+			var listItem = myLinkItem.parentNode;
+			var nextListItem = myLinkItem.nextSibling;
+			var prevListItem = myLinkItem.previousSibling;
+			console.log(nextListItem);
+			console.log(prevListItem);
+			
+			// var myLinkItem = document.getElementById("linkItem");
+			// console.log(myLinkItem.parentElement.nodeName);
+
+			// var DomString = "";
+			// if(!document.getElementById||!document.createTextNode){
+			// 	return;
+			// }
+			// var demoList = document.getElementById("eventList");
+			// if(!demoList){
+			// 	return;
+			// }
+			// if(demoList.hasChildNodes()){
+			// 	var ch = demoList.childNodes;
+			// 	for(var i=0;i<ch.length;i++){
+			// 		DomString += ch[i].nodeName + '\n';
+			// 	}
+			// 	console.log(DomString);
+			// }
+		}
+		
+	</script>
+</head>
+
+<body>
+	<button type="button" id="btnConfirm">Confirm</button>
+	<ul id="eventList">
+		<li>List 1</li>
+		<li>List 2</li>
+		<li >
+			<a id="linkItem" href="http://www.google.com">Link list item </a>
+		</li>
+		<li>List 4</li>
+		<li>List 5</li>
+	</ul>
+	<div>
+		<ul id='ulNode'>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li id='liNoded'>d</li>
+			<li>e</li>
+			<li>f</li>
+			<li>g</li>
+		</ul>
+	</div>
+</body>
+
+</html>

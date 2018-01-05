@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cosmic JS Easy Browser Example</title>
+</head>
+<body>
+<h1 id="title">If you see this, something isn't working...</h1>
+<div id="content"></div>
+<div id="metafields"></div>
+
+<script src="./cosmicjs.browser.min.js"></script>
+<script>
+var config = {
+  bucket: {
+    slug: 'your-bucket-slug'
+  },
+  object: {
+    slug: 'home'
+  }
+};
+Cosmic.getObject(config, config.object, (err, res) => {
+  var object = res.object;
+  document.getElementById('title').innerHTML = object.title;
+  document.getElementById('content').innerHTML = object.content;
+  var metafields = object.metafields;
+  var items = '';
+  metafields.forEach(function(metafield){
+    items += '<h2>' + metafield.title + '</h2>';
+    items += '<img width="300" src="' + metafield.url + '"/>';
+    items += '<br><br>';
+  });
+  document.getElementById('metafields').innerHTML = items;
+});
+</script>
+</body>
+</html>

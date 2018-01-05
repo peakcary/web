@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+<script src="./jquery-1.7.2.min.js"></script>
+<script>
+		$(function () {
+			$("#btnConfirm").click(function () {
+				$.ajax({
+				type:"GET",
+				url:"http://teacher.967111.com/publicupload/editorupload/20160815/20160815142942_609.txt", 
+				jsonpCallback: "handler",  //指定回调函数名称 
+				dataType:"jsonp",
+				success:function(data){
+					console.log('success');
+				},
+				error:function(err){
+					console.log(err);
+				}
+			 });
+			});
+
+			
+			 
+		});
+	</script>
+</head>
+<body>
+	Hello Peak
+	<button type="button" id="btnConfirm">Confirm</button>
+</body>
+</html>
