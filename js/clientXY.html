@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			background: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box" class="box">
+
+	</div>
+
+	<script>
+		window.onload = function () {
+			var box = document.getElementById("box");
+			box.onclick = function (event) {
+				console.group('X方向');
+				console.log('clientX: ' + event.clientX);
+				console.log('offsetX: ' + event.offsetX);
+				console.log('screenX: ' + event.screenX);
+				console.log('pageX: ' + event.pageX);
+				console.groupEnd();
+
+				console.group('Y方向');
+				console.log('clientY: ' + event.clientY);
+				console.log('offsetY: ' + event.offsetY);
+				console.log('screenY: ' + event.screenY);
+				console.log('pageY: ' + event.pageY);
+				console.groupEnd();
+
+			}
+		}
+	</script>
+</body>
+
+</html>

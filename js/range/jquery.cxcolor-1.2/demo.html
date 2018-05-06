@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery cxColor 颜色选择器 &raquo; 示例 &raquo; 在线演示 - 前端开发仓库</title>
+	<!-- <link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/demo.css"> -->
+	<link rel="stylesheet" href="./css/layout.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="side">
+			<div class="logo">
+				<a href="/" target="_blank">前端开发仓库</a>
+				<em>在线演示</em>
+			</div>
+			<dl class="about">
+				<dt>关于</dt>
+				<dd>
+					<a target="_blank" href="http://ciaoca.com">作者</a>
+				</dd>
+				<dd>
+					<a target="_blank" href="https://github.com/ciaoca/cxColor">Github</a>
+				</dd>
+				<dd>
+					<a target="_blank" href="http://code.ciaoca.com/jquery/cxColor/">中文文档</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="main">
+			<div class="inwrap">
+				<h1>jQuery cxColor 颜色选择器</h1>
+				<h2>示例</h2>
+
+				<div class="example">
+					<fieldset>
+						<legend>默认</legend>
+						<label for="color_a">选择颜色：</label>
+						<input id="color_a" name="mycolor" type="text" class="input_cxcolor" readonly>
+					</fieldset>
+
+					<fieldset>
+						<legend>在参数中设置默认值</legend>
+						<label for="color_b">选择颜色：</label>
+						<input id="color_b" type="text" class="input_cxcolor" readonly>
+					</fieldset>
+
+					<fieldset>
+						<legend>在 value 中有默认值</legend>
+						<label for="color_c">选择颜色：</label>
+						<input id="color_c" type="text" class="input_cxcolor" readonly value="#ff0000">
+					</fieldset>
+
+					<fieldset>
+						<legend>API 示例</legend>
+						<div class="form">
+							<dl class="row">
+								<dt>
+									<label for="title">标题：</label>
+								</dt>
+								<dd>
+									<input id="title" class="input" type="text" size="20" value="标题颜色跟随变化">
+								</dd>
+							</dl>
+							<dl class="row">
+								<dt>
+									<label for="color_d">颜色：</label>
+								</dt>
+								<dd>
+									<input id="color_d" type="text" class="input_cxcolor" readonly value="#009900">
+								</dd>
+							</dl>
+						</div>
+						<div id="acts" class="button_group mt">
+							<button type="button" class="button green" data-act="show">显示面板</button>
+							<button type="button" class="button green" data-act="color" value="#ff0000">设置为红色</button>
+							<button type="button" class="button green" data-act="color" value="#0000ff">设置为蓝色</button>
+							<button type="button" class="button green" data-act="reset">默认颜色</button>
+							<button type="button" class="button green" data-act="get">获取当前颜色</button>
+							<button type="button" class="button green" data-act="clear">清除颜色</button>
+						</div>
+					</fieldset>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="../jquery-1.7.2.min.js"></script> 
+	<script src="../jquery.cxcolor-1.2/jquery.cxcolor.min.js"></script>
+	<script>
+		$('#color_a').cxColor();
+
+		$('#color_b').cxColor({
+			color: '#0066ff'
+		});
+
+		$('#color_c').cxColor();
+
+		(function () {
+			var color = $('#color_d');
+			var title = $('#title');
+			var acts = $('#acts');
+
+			color.bind('change', function () {
+				title.css('color', this.value)
+			});
+
+			color.cxColor(function (api) {
+				acts.on('click', 'button', function () {
+					var _this = $(this);
+					var _val = _this.data('act');
+
+					switch (_val) {
+						case 'show':
+							api.show();
+							break;
+						case 'hide':
+							api.hide();
+							break;
+						case 'color':
+							api.color(this.value);
+							break;
+						case 'reset':
+							api.reset();
+							break;
+						case 'get':
+							alert('当前选择的颜色值为：' + api.color());
+							break;
+						case 'clear':
+							api.clear();
+							break;
+					};
+				});
+
+				$('#btn_red').bind('click', function () {
+					api.color('#ff0000');
+				});
+
+				$('#btn_show').bind('click', function () {
+					api.show();
+				});
+			});
+		})();
+	</script>
+
+	<div style="display:none;">
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cdiv id='cnzz_stat_icon_5076009' style='display:none;'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s25.cnzz.com/stat.php%3Fid%3D5076009' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
+</body>
+
+</html>

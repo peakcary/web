@@ -1,0 +1,468 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="cj/a1.js"></script>
+<title>酷炫抽奖转盘代码特效 - JS代码网</title>
+<meta name="keywords" content="抽奖转盘代码,转盘抽奖特效,抽奖转盘JS,jQuery抽奖转盘,抽奖转盘制作,幸运大转盘抽奖">
+<meta name="description" content="JS代码网提供各种JS代码下载、JS代码大全、抽奖转盘代码特效学习和下载">
+
+<style>
+	*{padding:0;margin:0}
+	body{
+		text-align:center;
+		background-color:#c71a1a;
+	}
+	.ly-plate{
+		position:relative;
+		width:509px;
+		height:509px;
+		/*margin: 50px auto;*/
+		background:#9c1515;
+		border-radius:400px;
+		float:left;
+	}
+	.rotate-bg{
+		width:509px;
+		height:509px;
+		background:url(cj/ly-plate.png);
+		position:absolute;
+		top:0;
+		left:0
+	}
+	.ly-plate div.lottery-star{
+		width:214px;
+		height:214px;
+		position:absolute;
+		top:150px;
+		left:147px;
+		/*text-indent:-999em;
+		overflow:hidden;
+		background:url(rotate-static.png);
+		-webkit-transform:rotate(0deg);*/
+		outline:none
+	}
+	.ly-plate div.lottery-star #lotteryBtn{
+		cursor: pointer;
+		position: absolute;
+		top:0;
+		left:0;
+		*left:-107px
+	}
+	.dst{
+		width:480px;
+		height:200px;
+		background:#fff;
+		position:fixed;
+		top:40%;
+		left:50%;
+		margin:-100px 0 0 -255px;
+		display:none;
+		padding:50px 15px 15px 15px;
+		text-align:left;
+		border:solid 2px #ffd889;
+		box-shadow:0 0 15px #ce9d39;
+		background:#fffad1;
+	}
+</style>
+<style>
+img{border:0;}
+.titme{
+	position:absolute;
+	top:0;
+	left:180px;
+}
+li{list-style:none;}
+.uername{float:left; width:260px;}
+.yh{float:right;}
+.yh{float:right;}
+#listbox{
+	height:150px; 
+	overflow:hidden; 
+	padding:10px;
+}
+#listbox li{height:24px; line-height:24px; padding-bottom:5px; margin-bottom:5px; border-bottom:solid 1px #ccc; position:relative; text-align:left;}
+#listbox li img{margin-left:5px;}
+#listbox_copymsgid li{list-style:none;}
+
+.listbox{background:#ffffe6; margin-right:15px;}
+  .listbox h1{font-size:1.8em; padding:10px 0; margin-bottom:5px; font-family:"微软雅黑"; text-align:center;}
+  .lis{
+	  height:200px;
+	  overflow:hidden;
+	  border:solid 1px #ccc;
+	  padding:5px;
+  }
+  .red{color:#fff552;}
+  .buyBottom{
+	  background:#085040;
+	  height:90px;
+	  padding:10px;
+	  position:fixed;
+	  _position:relative;
+	  bottom:0;
+	  left:50%;
+	  margin-left:-500px;
+	  width:980px;
+  }
+  .buyBottom h1{display:inline; float:left; margin-left:50px; font-size:2.2em; width:600px; text-align:left; padding-top:10px; color:#fff; font-weight:600;}
+  .buyBottom h1 span{
+	  font-size:20px;
+	  line-height:35px;
+  }
+  .buyBottom a{float:right; display:inline; margin-right:50px;}
+  .buyBottom a img{vertical-align:middle;}
+</style>
+</head>
+<body>
+    <div style="width:1000px; height:510px; padding-top:5px; margin:auto;">
+	<div class="ly-plate">
+		<div class="rotate-bg"></div>
+		<div class="lottery-star"><img src="cj/rotate-static.png" id="lotteryBtn"></div>
+	</div>
+    <div style=" float:right; width:450px; padding-top:100px; text-align:left;">
+        <h1 style="font-size:3em; color:#fff; font-family:'微软雅黑'">您敢玩，我敢送！</h1>
+        <p style="color:#fff; margin-bottom:15px;">90%的中奖概率，已经有<strong style="margin:0 5px; color:#FF9;">2134</strong>位掌柜领奖了，</p>
+        <!---- -->
+          <div class="listbox">
+    <h1 style="color:#F00">↓↓↓ 火热领奖中 ↓↓↓</h1>
+    <div id="listbox">
+      <ul id="userlist">
+        <li>
+          <div class="titme">33秒前</div>
+          <div class="uername">主***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">1分钟前</div>
+          <div class="uername">c***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">1分钟前</div>
+          <div class="uername">a***0<img src="http://img01.taobaocdn.com/tps/i1/T1fwYxXdRnXXaSQP_X-16-16.png"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">2分钟前</div>
+          <div class="uername">e***店<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">2分钟前</div>
+          <div class="uername">过***龙<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_4.gif"></div>
+          <div class="yh" style="">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">3分钟前</div>
+          <div class="uername">词***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">3分钟前</div>
+          <div class="uername">卡***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">3分钟前</div>
+          <div class="uername">8***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">4分钟前</div>
+          <div class="uername">p***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">4分钟前</div>
+          <div class="uername">e***松<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">4***咯<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">c***平<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">主***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">c***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">a***0<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">e***店<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">过***龙<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">5分钟前</div>
+          <div class="uername">词***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">卡***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">8***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">p***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">e***松<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">4***咯<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">c***平<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        
+        
+        
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">主***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">c***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">6分钟前</div>
+          <div class="uername">a***0<img src="http://img01.taobaocdn.com/tps/i1/T1fwYxXdRnXXaSQP_X-16-16.png"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">e***店<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">过***龙<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_4.gif"></div>
+          <div class="yh" style="">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">词***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">卡***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">8***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">p***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">7分钟前</div>
+          <div class="uername">e***松<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">8分钟前</div>
+          <div class="uername">4***咯<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">8分钟前</div>
+          <div class="uername">c***平<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">8分钟前</div>
+          <div class="uername">主***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">9分钟前</div>
+          <div class="uername">c***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">9分钟前</div>
+          <div class="uername">a***0<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">9分钟前</div>
+          <div class="uername">e***店<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">9分钟前</div>
+          <div class="uername">过***龙<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_5.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">10分钟前</div>
+          <div class="uername">词***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">10分钟前</div>
+          <div class="uername">卡***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_3_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">10分钟前</div>
+          <div class="uername">8***c<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_4.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">11分钟前</div>
+          <div class="uername">p***e<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_2.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">15分钟前</div>
+          <div class="uername">e***松<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_1.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">11分钟前</div>
+          <div class="uername">4***咯<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_2_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+        <li>
+          <div class="titme">12分钟前</div>
+          <div class="uername">c***平<img src="http://a.tbcdn.cn/sys/common/icon/rank/b_1_3.gif"></div>
+          <div class="yh">已经领奖</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+        <!---  -->
+    </div>
+    </div>
+    <script type="text/javascript">
+     function init_Scroll(){
+     var scrollPics = new scrollVertical('listbox','userlist');
+         scrollPics.speed = 10; /* 调节speed值可以改变滚动间隙 */
+         scrollPics.isPause = true;
+ 
+     var timer_start = setTimeout(function(){clearTimeout(timer_start);scrollPics.isPause = false;},1000);
+
+     Event.addEvent(scrollPics.scrollArea,"mouseover",function(){scrollPics.isPause = true;});
+     Event.addEvent(scrollPics.scrollArea,"mouseout",function(){scrollPics.isPause = false;});
+     }
+      Event.addEvent(window,'load',init_Scroll);
+     </script>
+  
+    <div class="dst">
+        <div style="float:left; width:120px;"><img src="cj/love.png"></div>
+        <div style="float:right; width:340px;">
+            <h1 style="font-family:'微软雅黑'; font-size:1.8em; color:#f00; margin-bottom:5px;">恭喜您获得:一等奖；</h1>
+            <p style="font-size:12px; color:#999;">奖品：0元体验名扬天下软件，一键解决流量烦恼，用名扬天下</p>
+            <p>已经有<strong style="margin:0 5px; color:#f00;">2134</strong>位掌柜领奖了！</p>
+            <p style="margin-top:15px;"><a target="_blank" href="http://www.js-css.cn" style="width:119px; display:block; overflow:hidden; line-height:500px;height:42px; background:url(cj/but.png)"></a></p>
+        </div>
+    </div>
+</body>
+<script src="cj/jquery-1.7.2.min.js"></script>
+<script src="cj/jQueryRotate.2.2.js"></script>
+<script src="cj/jquery.easing.min.js"></script>
+
+<script>
+$(function(){
+	var timeOut = function(){  //超时函数
+		$("#lotteryBtn").rotate({
+			angle:0, 
+			duration: 10000, 
+			animateTo: 2160, //这里是设置请求超时后返回的角度，所以应该还是回到最原始的位置，2160是因为我要让它转6圈，就是360*6得来的
+			callback:function(){
+				alert('亲！没有中奖哦！！')
+			}
+		}); 
+	}; 
+	var rotateFunc = function(awards,angle,text){  //awards:奖项，angle:奖项对应的角度
+		$('#lotteryBtn').stopRotate();
+		$("#lotteryBtn").rotate({
+			angle:0, 
+			duration: 5000, 
+			animateTo: angle+1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+			callback:function(){
+				//alert(text)
+				$(".dst").fadeIn();
+				//setTimeout("top.location.href='http://fuwu.taobao.com/ser/assembleParam.htm?spm=a1z2j.6989585.0.0.o9dyAn&tracelog=qianniu&subParams=itemCode:FW_GOODS-1884032-1,cycleNum:7,cycleUnit:3,freeTry:1;'",5000);
+			}
+		}); 
+	};
+	
+	$("#lotteryBtn").rotate({ 
+	   bind: 
+		 { 
+			click: function(){
+				var time = [1];
+					time = time[Math.floor(Math.random()*time.length)];
+				if(time==0){
+					timeOut(); //网络超时
+				}
+				if(time==1){
+					var data = [1,2,3]; //返回的数组
+						data = data[Math.floor(Math.random()*data.length)];
+					if(data==1){
+						rotateFunc(1,157,'恭喜您抽中的一等奖')
+					}
+					if(data==2){
+						rotateFunc(2,247,'恭喜您抽中的一等奖')
+					}
+					if(data==3){
+						rotateFunc(3,22,'恭喜您抽中的一等奖')
+					}
+					/*if(data==0){
+						var angle = [67,112,202,292,337];
+							angle = angle[Math.floor(Math.random()*angle.length)]
+						rotateFunc(0,angle,'很遗憾，这次您未抽中奖')
+					}*/
+				}
+			}
+		 } 
+	   
+	});
+	
+})
+</script>
+</html>

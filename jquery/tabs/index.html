@@ -1,0 +1,487 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" media="screen" href="./jquery-ui-1.12.1.custom/jquery-ui.min.css" /> 
+<style type="text/css">
+h1 {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-left: 10px;
+}
+p {	
+	padding: 5px 0 5px 1em;
+}
+em { 
+	font-style: italic; 
+}
+.example {
+	margin: 0 1em;
+	padding: 5px 0 0 0;
+	margin: 5px 10px 20px 10px;	
+}
+
+.ui-tabs-paging-next { 
+	float: right !important;
+}
+.ui-tabs-paging-prev,
+.ui-tabs-paging-next {
+	background: transparent !important;
+	border: 0 !important;
+	margin-bottom: 1px !important;
+}
+
+#example2 .ui-tabs-paging-prev,
+#example2 .ui-tabs-paging-next {
+	font-weight: bold;
+}
+.ui-tabs-paging-prev a,
+.ui-tabs-paging-next a {
+    display: block; 
+    position: relative; 
+    top: 1px; 
+    border: 0;
+    z-index: 2; 
+    padding: 0;
+    /* color: #444; */ 
+    text-decoration: none;
+	background: transparent !important; 
+	cursor: pointer;
+}
+.ui-tabs-paging-next a:hover,
+.ui-tabs-paging-next a:focus,
+.ui-tabs-paging-next a:active,
+.ui-tabs-paging-prev a:hover,
+.ui-tabs-paging-prev a:focus,
+.ui-tabs-paging-prev a:active { 
+	background: transparent; 
+}
+.ui-tabs-paging-disabled {
+	visibility: hidden;
+}
+</style>
+<script type="text/javascript" src="./jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="./jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./ui.tabs.paging.js"></script> 
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	// initialize tabs with default behaviors
+	jQuery('#example1').tabs();
+	jQuery('#example2').tabs({ cache: true });
+	jQuery('#example3').tabs({ cache: true });
+	jQuery('#example4').tabs({ cache: true, activeOnAdd: true });
+	jQuery('#example4').tabs( "option", "active", 21);
+
+	// initialize paging
+	function init() {
+		jQuery('#example1').tabs('paging');
+		jQuery('#example2').tabs('paging', { cycle: true, nextButton: 'next &gt;', prevButton: '&lt; prev' });
+		jQuery('#example3').tabs('paging', { follow: true, followOnActive: true, tabsPerPage: 5 });
+		jQuery('#example4').tabs('paging', { cycle: true, follow: true, followOnActive: true, activeOnAdd: true });
+	}
+	init();
+ 
+});
+</script>
+</head>
+<body style="font-size: 75%;">
+<div id="switcher" style="padding: 10px; margin: 0 auto;"></div>
+
+<div class="example">
+<h1>Example 1</h1>
+<p><em>Settings:</em> Defaults</p>
+<!--
+<table>
+ <tr>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example1').tabs('rotate', 1000);">Start Rotate</button></td>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example1').tabs('rotate', 0);">Stop Rotate</button></td>
+ </tr>
+<tr></tr>
+</table>
+-->
+<div id="example1">
+  <ul class="tabs">
+    <li><a href="#example1-1">Tab 1</a></li>
+    <li><a href="#example1-2">Tab 2</a></li>
+    <li><a href="#example1-3">Tab 3</a></li>
+    <li><a href="#example1-4">Tab 4</a></li>
+    <li><a href="#example1-5">Tab 5</a></li>
+    <li><a href="#example1-6">Tab 6</a></li>
+    <li><a href="#example1-7">Tab 7</a></li>
+    <li><a href="#example1-8">Tab 8</a></li>
+    <li><a href="#example1-9">Tab 9</a></li>
+    <li><a href="#example1-10">Tab 10</a></li>
+    <li><a href="#example1-11">Tab 11</a></li>
+    <li><a href="#example1-12">Tab 12</a></li>
+  </ul>
+  <div id="example1-1">
+<p>Tab 1</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-2">
+<p>Tab 2</p>
+<p>Lorem ipsum dolor sit amet, Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. P ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-3">
+<p>Tab 3</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-4">
+<p>Tab 4</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-5">
+<p>Tab 5</p>
+<p>Lorem ipsum dolor. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-6">
+<p>Tab 6</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-7">
+<p>Tab 7</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+  </div>
+  <div id="example1-8">
+<p>Tab 8</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-9">
+<p>Tab 9</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-10">
+<p>Tab 10</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+  </div>
+  <div id="example1-11">
+<p>Tab 11</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example1-12">
+<p>Tab 12</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer ad lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+</div>
+</div>
+
+<div class="example" style="width: 450px;">
+<h1>Example 2</h1>
+<p><em>Settings:</em> Cycle, No Follow, Use "prev" and "next" for buttons, 450 px width</p>
+<!--
+<table>
+ <tr>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example2').tabs('rotate', 1000);">Start Rotate</button></td>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example2').tabs('rotate', 0);">Stop Rotate</button></td>
+ </tr>
+<tr></tr>
+</table>
+-->
+<div id="example2">
+  <ul class="tabs">
+    <li><a href="#example2-1">Tab 1</a></li>
+    <li><a href="#example2-2">Tab 2</a></li>
+    <li><a href="#example2-3">Tab 3</a></li>
+    <li><a href="#example2-4">Tab 4</a></li>
+    <li><a href="#example2-5">Tab 5</a></li>
+    <li><a href="#example2-6">Tab 6</a></li>
+    <li><a href="#example2-7">Tab 7</a></li>
+    <li><a href="#example2-8">Tab 8</a></li>
+    <li><a href="#example2-9">Tab 9</a></li>
+    <li><a href="#example2-10">Tab 10</a></li>
+    <li><a href="#example2-11">Tab 11</a></li>
+    <li><a href="#example2-12">Tab 12</a></li>
+  </ul>
+  <div id="example2-1">
+<p>Tab 1</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-2">
+<p>Tab 2</p>
+<p>Lorem ipsum dolor si ipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-3">
+<p>Tab 3</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-4">
+<p>Tab 4</p>
+<p>Lorem ipsum do adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-5">
+<p>Tab 5</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-6">
+<p>Tab 6</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet,  lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-7">
+<p>Tab 7</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+  </div>
+  <div id="example2-8">
+<p>Tab 8</p>
+<p>Lorem ipsum dolor sit amet, elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-9">
+<p>Tab 9</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-10">
+<p>Tab 10</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+  </div>
+  <div id="example2-11">
+<p>Tab 11</p>
+<p>Nulla massa. Phasellus leo urna, vehicula nec, volutpat in, pulvinar nec, urna. Morbi ipsum lacus, ornare a, venenatis id, ultricies sed, justo. Nam viverra erat sed nisi. Suspendisse risus enim, pellentesque ut, tincidunt in, mollis id, justo. In eu nisi. Fusce ac augue et est iaculis semper. Nulla et tortor vel sapien luctus sagittis. Vivamus pulvinar posuere turpis. Vivamus eget nibh.</p>
+</div>
+  <div id="example2-12">
+<p>Tab 12</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut lorem. Donec elementum dignissim felis. Pellentesque ut lectus vitae leo bibendum dapibus. Praesent porttitor suscipit tortor. Duis pharetra mattis dolor. Aenean sit amet nisi egestas odio tempor imperdiet. Proin nunc ligula, scelerisque malesuada, mattis quis, condimentum id, felis. Duis id ipsum vel nisl ornare aliquam. Maecenas ac risus. Phasellus aliquam mollis erat. Morbi sed ipsum id magna cursus sodales. Praesent a dolor.</p>
+<p>Aliquam eu arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus nibh lacus, porttitor varius, tempus et, congue sed, eros. Cras pharetra nibh in turpis. Praesent lobortis nulla sed lectus. Nam non felis. Donec eget diam ac libero mollis tincidunt. Mauris mattis. Nam elementum, quam eu ullamcorper dignissim, leo lacus vulputate leo, at rutrum risus est et eros. Phasellus ac odio sed urna mattis vestibulum. Vestibulum sed augue vitae nisi auctor luctus. In hac habitasse platea dictumst. Curabitur id pede quis elit feugiat placerat. Pellentesque accumsan, risus et bibendum gravida, tellus libero faucibus est, id pharetra nibh risus ac ante. Pellentesque nec erat.</p>
+</div>
+</div>
+</div>
+
+<div class="example">
+<h1>Example 3</h1>
+<p><em>Settings:</em> No Cycle, Follow, follow on select (rotate), Max of 5 tabs per page</p>
+<!--
+<table>
+ <tr>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example3').tabs('rotate', 1000);">Start Rotate</button></td>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example3').tabs('rotate', 0);">Stop Rotate</button></td>
+ </tr>
+<tr></tr>
+</table>
+-->
+<div id="example3">
+  <ul class="tabs">
+    <li><a href="#example3-1">Tab 1</a></li>
+    <li><a href="#example3-2">Tab 2</a></li>
+    <li><a href="#example3-3">Tab 3</a></li>
+    <li><a href="#example3-4">Tab 4</a></li>
+    <li><a href="#example3-5">Tab 5</a></li>
+    <li><a href="#example3-6">Tab 6</a></li>
+    <li><a href="#example3-7">Tab 7</a></li>
+    <li><a href="#example3-8">Tab 8</a></li>
+    <li><a href="#example3-9">Tab 9</a></li>
+    <li><a href="#example3-10">Tab 10</a></li>
+    <li><a href="#example3-11">Tab 11</a></li>
+    <li><a href="#example3-12">Tab 12</a></li>
+    <li><a href="#example3-13">Tab 13</a></li>
+    <li><a href="#example3-14">Tab 14</a></li>
+    <li><a href="#example3-15">Tab 15</a></li>
+    <li><a href="#example3-16">Tab 16</a></li>
+    <li><a href="#example3-17">Tab 17</a></li>
+    <li><a href="#example3-18">Tab 18</a></li>
+    <li><a href="#example3-19">Tab 19</a></li>
+    <li><a href="#example3-20">Tab 20</a></li>
+    <li><a href="#example3-21">Tab 21</a></li>
+    <li><a href="#example3-22">Tab 22</a></li>
+    <li><a href="#example3-23">Tab 23</a></li>
+    <li><a href="#example3-24">Tab 24</a></li>
+    <li><a href="#example3-25">Tab 25</a></li>
+  </ul>
+  <div id="example3-1">Tab 1</div>
+  <div id="example3-2">Tab 2</div>
+  <div id="example3-3">Tab 3</div>
+  <div id="example3-4">Tab 4</div>
+  <div id="example3-5">Tab 5</div>
+  <div id="example3-6">Tab 6</div>
+  <div id="example3-7">Tab 7</div>
+  <div id="example3-8">Tab 8</div>
+  <div id="example3-9">Tab 9</div>
+  <div id="example3-10">Tab 10</div>
+  <div id="example3-11">Tab 11</div>
+  <div id="example3-12">Tab 12</div>
+  <div id="example3-13">Tab 13</div>
+  <div id="example3-14">Tab 14</div>
+  <div id="example3-15">Tab 15</div>
+  <div id="example3-16">Tab 16</div>
+  <div id="example3-17">Tab 17</div>
+  <div id="example3-18">Tab 18</div>
+  <div id="example3-19">Tab 19</div>
+  <div id="example3-20">Tab 20</div>
+  <div id="example3-21">Tab 21</div>
+  <div id="example3-22">Tab 22</div>
+  <div id="example3-23">Tab 23</div>
+  <div id="example3-24">Tab 24</div>
+  <div id="example3-25">Tab 25</div>
+</div>
+</div>
+<script type="text/javascript">
+function addTab(selector, index) {
+	var myTabs = jQuery(selector);
+	
+	if (index == undefined)
+		index = myTabs.tabs('length');
+	
+	tabId = '#tab' + (new Date).getTime();
+	
+	myTabs.tabs('add', tabId, $('#TAB_NAME').val());
+	
+	$(tabId).load('new_tab_data.txt');
+}
+
+function removeTab(selector, index) {
+	var myTabs = jQuery(selector);
+
+	if (index == undefined || index.length == 0)
+		index = myTabs.tabs('length') - 1;
+	else 
+		index = parseInt(index);
+ 
+	myTabs.tabs('remove', index)
+}
+</script>
+<div class="example">
+<h1>Example 4</h1>
+<p><em>Settings:</em> Tab #22 selected initially, Follow, Add / Remove tabs buttons, follow on select (rotate), buttons to Initialize / Destroy paging</p>
+<table>
+ <tr>
+  <td style="padding-left: 30px">Name <input type="text" id="TAB_NAME" value="New Tab" size="10" /> <button onclick="addTab('#example4');">Add</button></td>
+  <td style="padding-left: 30px">Index <input type="text" id="TAB_INDEX" value="" size="3" /> <button onclick="removeTab('#example4', jQuery('#TAB_INDEX').val());">Remove</button></td>
+ </tr>
+ <tr>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example4').tabs('paging', { cycle: true, follow: true, followOnSelect: true, selectOnAdd: true });">Initialize Paging</button></td>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example4').tabs('pagingDestroy');">Destroy Paging</button></td>
+<!--
+  <td style="padding-left: 30px"><button onclick="jQuery('#example4').tabs('rotate', 1000);">Start Rotate</button></td>
+  <td style="padding-left: 30px"><button onclick="jQuery('#example4').tabs('rotate', 0);">Stop Rotate</button></td>
+-->
+ </tr>
+<tr></tr>
+</table>
+<div id="example4">
+  <ul class="tabs">
+    <li><a href="#example4-1">Tab 1</a></li>
+    <li><a href="#example4-2">Tab 2</a></li>
+    <li><a href="#example4-3">Tab 3</a></li>
+    <li><a href="#example4-4">Tab 4</a></li>
+    <li><a href="#example4-5">Tab 5</a></li>
+    <li><a href="#example4-6">Tab 6</a></li>
+    <li><a href="#example4-7">Tab 7</a></li>
+    <li><a href="#example4-8">Tab 8</a></li>
+    <li><a href="#example4-9">Tab 9</a></li>
+    <li><a href="#example4-10">Tab 10</a></li>
+    <li><a href="#example4-11">Tab 11</a></li>
+    <li><a href="#example4-12">Tab 12</a></li>
+    <li><a href="#example4-13">Tab 13</a></li>
+    <li><a href="#example4-14">Tab 14</a></li>
+    <li><a href="#example4-15">Tab 15</a></li>
+    <li><a href="#example4-16">Tab 16</a></li>
+    <li><a href="#example4-17">Tab 17</a></li>
+    <li><a href="#example4-18">Tab 18</a></li>
+    <li><a href="#example4-19">Tab 19</a></li>
+    <li><a href="#example4-20">Tab 20</a></li>
+    <li><a href="#example4-21">Tab 21</a></li>
+    <li><a href="#example4-22">Tab 22</a></li>
+    <li><a href="#example4-23">Tab 23</a></li>
+    <li><a href="#example4-24">Tab 24</a></li>
+    <li><a href="#example4-25">Tab 25</a></li>
+    <li><a href="#example4-26">Tab 26</a></li>
+    <li><a href="#example4-27">Tab 27</a></li>
+    <li><a href="#example4-28">Tab 28</a></li>
+    <li><a href="#example4-29">Tab 29</a></li>
+    <li><a href="#example4-30">Tab 30</a></li>
+    <li><a href="#example4-31">Tab 31</a></li>
+    <li><a href="#example4-32">Tab 32</a></li>
+    <li><a href="#example4-33">Tab 33</a></li>
+    <li><a href="#example4-34">Tab 34</a></li>
+    <li><a href="#example4-35">Tab 35</a></li>
+    <li><a href="#example4-36">Tab 36</a></li>
+    <li><a href="#example4-37">Tab 37</a></li>
+    <li><a href="#example4-38">Tab 38</a></li>
+    <li><a href="#example4-39">Tab 39</a></li>
+    <li><a href="#example4-40">Tab 40</a></li>
+  </ul>
+  <div id="example4-1">Tab 1</div>
+  <div id="example4-2">Tab 2</div>
+  <div id="example4-3">Tab 3</div>
+  <div id="example4-4">Tab 4</div>
+  <div id="example4-5">Tab 5</div>
+  <div id="example4-6">Tab 6</div>
+  <div id="example4-7">Tab 7</div>
+  <div id="example4-8">Tab 8</div>
+  <div id="example4-9">Tab 9</div>
+  <div id="example4-10">Tab 10</div>
+  <div id="example4-11">Tab 11</div>
+  <div id="example4-12">Tab 12</div>
+  <div id="example4-13">Tab 13</div>
+  <div id="example4-14">Tab 14</div>
+  <div id="example4-15">Tab 15</div>
+  <div id="example4-16">Tab 16</div>
+  <div id="example4-17">Tab 17</div>
+  <div id="example4-18">Tab 18</div>
+  <div id="example4-19">Tab 19</div>
+  <div id="example4-20">Tab 20</div>
+  <div id="example4-21">Tab 21</div>
+  <div id="example4-22">Tab 22</div>
+  <div id="example4-23">Tab 23</div>
+  <div id="example4-24">Tab 24</div>
+  <div id="example4-25">Tab 25</div>
+  <div id="example4-26">Tab 26</div>
+  <div id="example4-27">Tab 27</div>
+  <div id="example4-28">Tab 28</div>
+  <div id="example4-29">Tab 29</div>
+  <div id="example4-30">Tab 30</div>
+  <div id="example4-31">Tab 31</div>
+  <div id="example4-32">Tab 32</div>
+  <div id="example4-33">Tab 33</div>
+  <div id="example4-34">Tab 34</div>
+  <div id="example4-35">Tab 35</div>
+  <div id="example4-36">Tab 36</div>
+  <div id="example4-37">Tab 37</div>
+  <div id="example4-38">Tab 38</div>
+  <div id="example4-39">Tab 39</div>
+  <div id="example4-40">Tab 40</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+	<div class="image-gif">
+
+	</div>
+	<div class="image db bg1"> </div>
+	<div class="image dn bg2"></div>
+	<div class="image dn bg3"></div>
+	<div class="image dn bg4"></div>
+	<div class="image dn bg5"></div>
+	<div class="image dn bg6"></div>
+	<div class="image dn bg7"></div>
+	<div class="image dn bg8"></div>
+	<div class="image dn bg9"></div>
+	<div class="image dn bg10"></div>
+	<div class="image dn bg11"></div>
+	<div class="image dn bg12"></div>
+	<div class="image dn bg13"></div>
+	<div class="image dn bg14"></div>
+	<div class="image dn bg15"></div>
+	<div class="image dn bg16"></div>
+	<div class="image dn bg17"></div>
+	<div class="image dn bg18"></div>
+	<div class="image dn bg19"></div>
+	<div class="image dn bg20"></div>
+	<div class="image dn bg21"></div>
+	<div class="image dn bg22"></div>
+	<div class="image dn bg23"></div>
+	<div class="image dn bg24"></div>
+	<div class="image dn bg25"></div>
+</body>
+
+<script src="./jquery-1.11.3.min.js"></script>
+<script>
+	$(function () {
+
+		// $('body').everyTime('0.067s', function () {
+
+		// });
+
+		setInterval(upcss, 67);
+		var t = 1;
+		function upcss() {
+			if (t < 26) {
+				$(".image").removeClass('db');
+				$(".image").removeClass('dn');
+				$(".image").addClass('dn');
+				var dom = '.bg' + (t++);
+				$(dom).addClass('db');
+				// console.log(dom);
+			} else {
+				t = 1;
+			}
+		}
+
+
+	});
+
+</script>
+
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<link rel="stylesheet" href="./js/plugin/cxcoror/jquery.cxcolor.css">
+
+<body>
+	<span style="color:red;" id="selectid" class="selection"> 上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕上映前一个星期，片中女主角蓝燕(微博)被传失踪，甚至自杀。昨日现身首映式，所有谣言不攻自破。蓝燕对腾讯娱乐相当友好，直称我们是自己人。还特地留下来接受采访。在自己人面前，她主动提及"失踪传闻"是因为自己压力太大。</span>
+
+	<input id="color_select" name="mycolor" type="text" class="input_cxcolor" readonly>
+	<button id="btnClear">Clear</button>
+
+</body>
+
+<script src="./js/plugin/jquery-1.7.2.min.js"></script>
+<script src="./js/plugin/rangy-core.js"></script>
+<script src="./js/plugin/cxcoror/jquery.cxcolor.min.js"></script>
+<script src="./js/plugin/rangy-core.js"></script>
+<script>
+	$(function () {
+
+
+
+
+		var sel;
+		var color = $('#color_select');
+		color.bind('change', function () {
+			console.log(this.value);
+			console.log(sel)
+			if (sel) {
+				var oldStr = $("#selectid").html();
+				var newStr = oldStr.replace(sel.toString(), "<span style='color:" + this.value + "'>" + sel.toString() + "</span>");
+				$("#selectid").html(newStr);
+			}
+		});
+
+		color.cxColor(function (api) {
+			$('#selectid').bind('mouseup', function () {
+				sel = rangy.getSelection();
+				if (sel.toString() != "") {
+					api.show();
+				}
+			});
+		});
+
+
+
+		$("#btnClear").click(function () {
+			$("#selectid").html(delHtmlTag($("#selectid").html()));
+		});
+	})
+
+
+	function delHtmlTag(str) {
+		return str.replace(/<[^>]+>/g, "");//去掉所有的html标记
+	}
+</script>
+
+</html>

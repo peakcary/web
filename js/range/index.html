@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./jquery.cxcolor-1.2/css/jquery.cxcolor.png">
+	<script src="./rangy-core.js"></script>
+	<script src="./jquery-1.7.2.min.js"></script>
+	<script src="./jquery.cxcolor-1.2/jquery.cxcolor.js"></script>
+	<script> 
+
+		function onselecton() {
+			var sel = rangy.getSelection();
+			console.log(sel)
+			alert(sel.toString());
+			api.show();
+		}
+
+
+		$(function () {
+			var color = $('#color_d');
+			color.bind('change', function () {
+
+			}); 
+			color.cxColor(function (api) {
+				acts.on('click', 'button', function () {
+					var _this = $(this);
+					var _val = _this.data('act');
+
+					switch (_val) {
+						case 'show':
+							api.show();
+							break;
+						case 'hide':
+							api.hide();
+							break;
+						case 'color':
+							api.color(this.value);
+							break;
+						case 'reset':
+							api.reset();
+							break;
+						case 'get':
+							alert('当前选择的颜色值为：' + api.color());
+							break;
+						case 'clear':
+							api.clear();
+							break;
+					};
+				});
+
+				$('#btn_red').bind('click', function () {
+					api.color('#ff0000');
+				});
+
+				$('#btn_show').bind('click', function () {
+					api.show();
+				});
+			});
+
+
+			$("#color_1").cxColor();
+		});
+	</script>
+</head>
+
+<body>
+	<p id="selectid" class="selection">《3D肉蒲团》上映前一个星期，片中女主角蓝燕(微博)被传失踪，甚至自杀。昨日现身首映式，所有谣言不攻自破。蓝燕对腾讯娱乐相当友好，直称我们是自己人。还特地留下来接受采访。在自己人面前，她主动提及"失踪传闻"是因为自己压力太大。</p>
+	<button onclick="onselecton();">选中一些文字，然后点击本按钮</button>
+
+	<h1>颜色选择</h1>
+	<div>
+		<input id="color_d" type="text" class="input_cxcolor" readonly value="#009900">
+		<div id="color_1"></div>
+	</div>
+</body>
+
+</html>

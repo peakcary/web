@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" media="screen" href="./jquery-ui-1.12.1.custom/jquery-ui.min.css" />
+	<style type="text/css">
+		h1 {
+			font-size: 1.1em;
+			font-weight: bold;
+			padding-left: 10px;
+		}
+
+		p {
+			padding: 5px 0 5px 1em;
+		}
+
+		em {
+			font-style: italic;
+		}
+
+		.example {
+			margin: 0 1em;
+			padding: 5px 0 0 0;
+			margin: 5px 10px 20px 10px;
+		}
+
+		.ui-tabs-paging-next {
+			float: right !important;
+		}
+
+		.ui-tabs-paging-prev,
+		.ui-tabs-paging-next {
+			background: transparent !important;
+			border: 0 !important;
+			margin-bottom: 1px !important;
+		}
+
+		#example2 .ui-tabs-paging-prev,
+		#example2 .ui-tabs-paging-next {
+			font-weight: bold;
+		}
+
+		.ui-tabs-paging-prev a,
+		.ui-tabs-paging-next a {
+			display: block;
+			position: relative;
+			top: 1px;
+			border: 0;
+			z-index: 2;
+			padding: 0;
+			/* color: #444; */
+			text-decoration: none;
+			background: transparent !important;
+			cursor: pointer;
+		}
+
+		.ui-tabs-paging-next a:hover,
+		.ui-tabs-paging-next a:focus,
+		.ui-tabs-paging-next a:active,
+		.ui-tabs-paging-prev a:hover,
+		.ui-tabs-paging-prev a:focus,
+		.ui-tabs-paging-prev a:active {
+			background: transparent;
+		}
+
+		.ui-tabs-paging-disabled {
+			visibility: hidden;
+		}
+	</style>
+	<script type="text/javascript" src="./jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="./jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./ui.tabs.paging.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			
+
+		 var tags =	$('#example1').tabs(); 
+ 
+			// initialize paging
+			function init() {
+				$('#example1').tabs('paging');
+				
+			}
+			init();
+			
+
+			$("#btnAdd").click(function(){
+				$("#tablist").append("<li><a href='#1'>aaaadsa</a></li>");
+				tags.tabs("refresh" );
+			});
+		});
+	</script>
+</head>
+
+<body style="font-size: 75%;">
+<div id="btnAdd">add</div>
+
+	<div class="example">
+		<div id="example1">
+			<ul class="tabs" id="tablist">
+				<li>
+					<a href="#example1-1">Tab 1</a>
+				</li>
+				<li>
+					<a href="#example1-2">Tab 2</a>
+				</li>
+				<li>
+					<a href="#example1-3">Tab 3</a>
+				</li>
+				<li>
+					<a href="#example1-4">Tab 4</a>
+				</li>
+				<li>
+					<a href="#example1-5">Tab 5</a>
+				</li>
+				<li>
+					<a href="#example1-6">Tab 6</a>
+				</li>
+				<li>
+					<a href="#example1-7">Tab 7</a>
+				</li>
+				<li>
+					<a href="#example1-8">Tab 8</a>
+				</li>
+				<li>
+					<a href="#example1-9">Tab 9</a>
+				</li>
+				<li>
+					<a href="#example1-10">Tab 10</a>
+				</li>
+				<li>
+					<a href="#example1-11">Tab 11</a>
+				</li>
+				<li>
+					<a href="#example1-12">Tab 12</a>
+				</li>
+			</ul>
+			<div id="example1-1">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-2">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-3">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-4">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-5">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-6">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-7">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-8">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-9">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-10">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-11">
+				<p>Tab 1</p> 
+			</div>
+			<div id="example1-12">
+				<p>Tab 1</p> 
+			</div>
+		</div>
+</body>
+
+</html>

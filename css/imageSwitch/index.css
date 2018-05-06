@@ -1,0 +1,255 @@
+.dn {
+  display: none
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_bg {
+  position: relative;
+  width: 102px;
+  height: 118px;
+  background-image: url('./images/logo_bg.png');
+  background-size: cover;
+}
+
+.logo_left {
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  width: 26px;
+  height: 18px;
+  background-image: url('./images/logo_left.png');
+  background-size: cover;
+  animation: logo_left 0.4s infinite;
+  transform-origin: 100% 50%;
+}
+
+.logo_right {
+  position: absolute;
+  top: 7px;
+  left: 70px;
+  width: 28px;
+  height: 18px;
+  background-image: url('./images/logo_right.png');
+  background-size: cover;
+  animation: logo_right 0.4s infinite;
+  transform-origin: 0 50%;
+}
+
+.logo_left_coin {
+  position: absolute;
+  top: 24px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background-image: url('./images/logo_coin.png');
+  background-size: cover;
+  opacity: 0;
+  animation: logo_left_coin_down 0.4s infinite;
+  animation-delay: 0.3s;
+}
+
+.logo_right_coin {
+  position: absolute;
+  top: 24px;
+  left: 81px;
+  width: 16px;
+  height: 16px;
+  background-image: url('./images/logo_coin.png');
+  background-size: cover;
+  opacity: 0;
+  animation: logo_right_coin_down 0.4s infinite;
+  animation-delay: 0.1s;
+}
+
+.logo_left_brow {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 20px;
+  height: 10px;
+  background-image: url('./images/logo_left_brow.png');
+  background-size: cover;
+  animation: logo_brow 0.5s infinite;
+  -webkit-animation: logo_brow 0.5s infinite;
+}
+
+.logo_right_brow {
+  position: absolute;
+  top: 25px;
+  left: 56px;
+  width: 20px;
+  height: 10px;
+  background-image: url('./images/logo_right_brow.png');
+  background-size: cover;
+  animation: logo_brow 0.5s infinite;
+  -webkit-animation: logo_brow 0.5s infinite;
+}
+
+.logo_mouth {
+  position: absolute;
+  left: 32px;
+  top: 63px;
+  width: 36px;
+  height: 16px;
+  background-image: url('./images/logo_mouth.png');
+  background-size: cover;
+  animation: logo_mouth 0.5s infinite;
+  -webkit-animation: logo_mouth 0.5s infinite;
+}
+
+.logo_mouth_line {
+  position: relative;
+  left: 41px;
+  top: 67px;
+  width: 16px;
+  height: 6px;
+  background-image: url('./images/logo_mouth_line.png');
+  background-size: cover;
+  animation: logo_mouth_line 0.5s infinite;
+  -webkit-animation: logo_mouth_line 0.5s infinite;
+}
+
+.logo_hand {
+  position: absolute;
+  left: 32px;
+  top: 78px;
+  width: 38px;
+  height: 22px;
+  background-image: url('./images/logo_hand.png');
+  background-size: cover;
+  animation: logo_hand 0.6s infinite;
+}
+
+@keyframes logo_left_coin_down {
+  0% {
+    top: 24px;
+    opacity: 0.8;
+  }
+  100% {
+    top: 114px;
+    opacity: 0;
+  }
+}
+
+@keyframes logo_right_coin_down {
+  0% {
+    top: 24px;
+    opacity: 0.8;
+  }
+  100% {
+    top: 114px;
+    opacity: 0;
+  }
+}
+
+@keyframes logo_left {
+  0% {
+    transform: rotate3d(0, 0, 1, 0);
+  }
+  25% {
+    transform: rotate3d(0, 0, 1, 25deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 0);
+  }
+  75% {
+    transform: rotate3d(0, 0, 1, -25deg);
+  } 
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes logo_right {
+  0% {
+    transform: rotate3d(0, 0, 1, 0);
+  }
+  25% {
+    transform: rotate3d(0, 0, 1, 25deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 0);
+  }
+  75% {
+    transform: rotate3d(0, 0, 1, -25deg);
+  } 
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes logo_brow {
+  from {
+    -webkit-transform: translate3d(0, 20%, 0);
+    transform: translate3d(0, 20%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes logo_hand {
+  0% {
+    -webkit-transform: translate3d(0, 5%, 0);
+    transform: translate3d(0, 5%, 0);
+    visibility: visible;
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 5%, 0);
+    transform: translate3d(0, 5%, 0);
+    visibility: visible;
+  }
+}
+
+@keyframes logo_mouth_line {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes logo_mouth {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.logo_original_line {
+  width: 160px;
+  height: 160px;
+  background-image: url('./images/logo_origin_line.png');
+  background-size: cover;
+}
+
+.logo_original {
+  width: 160px;
+  height: 160px;
+  background-image: url('./images/logo_origin.png');
+  background-size: cover;
+}
+
+.logo_gif {
+  width: 160px;
+  height: 160px;
+  background-image: url('./images/logo_gif.gif');
+  background-size: cover;
+}

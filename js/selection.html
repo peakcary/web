@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script> 
+
+
+		function onselection() {
+			var userSelection, text;
+			if (window.getSelection) {
+				//现代浏览器
+				userSelection = window.getSelection();
+			} else if (document.selection) {
+				//IE浏览器 考虑到Opera，应该放在后面
+				userSelection = document.selection.createRange();
+			}
+			alert(userSelection)
+			if (!(text = userSelection.text)) {
+				text = userSelection;
+			}
+			alert(text);
+		}
+	</script>
+</head>
+
+<body>
+	<span onclick="onselection();">
+		<p>4月13日消息，据台湾媒体报道，32岁的孙燕姿(Sng Ee Tze)和后天将满34岁的荷兰籍印度尼西亚男友纳迪姆(Nadim Van Der Ros)交往5年，曾说过"有空就结婚"的她，果然趁着宣传期尾声，于3月31日在新加坡登记注册了！昨消息传开，她未否认，仅说会选择适当时间公布喜讯，所属"美妙音乐"则表示她个性低调，婚礼只会邀请双方亲友，也不会透露细节，但据新加坡可靠消息指出，婚宴订在5月初。</p>
+	</span>
+</body>
+
+</html>
